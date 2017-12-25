@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "moduleResolution": "node",
     "outDir": "lib",
     "noUnusedLocals": true,
     "declaration": true,
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "lib": [
+      "es6",
+      "dom"
+    ]
   },
   "exclude": [
     "node_modules"
