@@ -40,7 +40,6 @@ async function createModel(modelPath, options = {}) {
         apiPath = options.apiPath;
       }
       let apiActionName = apiPath.match(/\/(\w+)$/)[1];
-      console.log('apiActionName', apiActionName);
       let componentName = modelName.replace(/^\w/, modelName[0].toUpperCase());
       let content = await renderFile(path.join(__dirname, templateFile), {
         modelName,

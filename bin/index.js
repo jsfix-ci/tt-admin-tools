@@ -2,7 +2,7 @@
 
 var program = require('commander');
 
-let model = require('../lib/model');
+let model = require('../tools/model');
 program
 .command('model <modelPath>')
 .description('create model')

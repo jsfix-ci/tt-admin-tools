@@ -7,11 +7,13 @@
     "tt-admin-tools": "./bin/index.js"
   },
   "scripts": {
+    "build": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
     "bin",
-    "lib"
+    "lib",
+    "tools"
   ],
   "repository": {
     "type": "git",
@@ -29,8 +31,17 @@
   },
   "homepage": "https://github.com/infeng/tt-admin-tools#readme",
   "dependencies": {
+    "@types/redux-actions": "^2.2.3",
     "bluebird": "^3.5.1",
     "commander": "^2.12.2",
-    "ejs": "^2.5.7"
+    "ejs": "^2.5.7",
+    "es6-promise": "^4.2.2",
+    "isomorphic-fetch": "^2.2.1",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-saga": "^0.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.5.2"
   }
 }

@@ -1,6 +1,7 @@
-import { initAction } from '../<%= depthText %>util/initAction';
-import { initApi, ApiConfig } from '../<%= depthText %>util/initApi';
+import { initAction } from 'tt-admin-tools/lib/model/initAction';
+import { initApi, ApiConfig } from 'tt-admin-tools/lib/model/initApi';
 import { handleActions } from 'redux-actions';
+import { makeListHandleActions, ListState } from 'tt-admin-tools/lib/model/listReducers';
 
 export let modelName = '<%= modelName %>';
 
@@ -33,29 +34,13 @@ export const sagas = api.sagas;
 
 // reducers
 
-export interface <%= componentName %>State {
-  loading: boolean;
+const listHandle = makeListHandleActions(apiActionNames.<%= apiActionName %>);
+
+export interface <%= componentName %>State extends ListState<any> {
 }
 
 export const reducer = handleActions<<%= componentName %>State, any>({
-  [apiActionNames.<%= apiActionName %>.request](state, action) {
-    return {
-      ...state,
-      loading: true,
-    };
-  },
-  [apiActionNames.<%= apiActionName %>.success](state, action) {
-    return {
-      ...state,
-      loading: false,
-    };
-  },
-  [apiActionNames.<%= apiActionName %>.error](state, action) {
-    return {
-      ...state,
-      loading: false,
-    };
-  },
+  ...listHandle.handleActions,
 }, {
-  loading: false,
+  ...listHandle.initializeState,
 });
