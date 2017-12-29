@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "rm -rf lib && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "files": [
     "bin",
@@ -42,6 +42,36 @@
     "redux-saga": "^0.16.0"
   },
   "devDependencies": {
-    "@types/node": "^8.5.2"
+    "@types/jest": "^22.0.0",
+    "@types/node": "^8.5.2",
+    "babel-jest": "^22.0.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.0.4",
+    "ts-jest": "^22.0.0",
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      "\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
