@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore, { sagaMiddleware, PersistConfig } from './store';
 import { PersistGate } from 'redux-persist/es/integration/react';
+import router, { NavData } from './router';
 
 export interface TTAppOptions {
   persistConfig?: PersistConfig;
@@ -15,7 +16,7 @@ export interface TTAppOptions {
 export default class TTApp {
   private _store: any;
   private _persistor: any;
-  private _router: any;
+  private _nav: NavData[];
 
   constructor(options: TTAppOptions) {
     const { persistor, store } = configureStore({}, options.persistConfig, options.model.reducers);
@@ -24,17 +25,16 @@ export default class TTApp {
     sagaMiddleware.run(options.model.appSaga);
   }
 
-  router(router: any) {
-    this._router = router;
+  router(nav: NavData[]) {
+    this._nav = nav;
   }
 
   start(containerId: string) {
     let render = () => {
-      const RouterConfig = this._router;
       ReactDOM.render(
         <Provider store={this._store}>
           <PersistGate persistor={this._persistor}>
-            {RouterConfig()}
+            {router(this._nav)}
           </PersistGate>
         </Provider>,
         document.getElementById(containerId),
