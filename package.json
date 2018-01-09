@@ -37,13 +37,18 @@
     "ejs": "^2.5.7",
     "es6-promise": "^4.2.2",
     "isomorphic-fetch": "^2.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
+    "redux-persist": "^5.4.0",
     "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "@types/jest": "^22.0.0",
     "@types/node": "^8.5.2",
+    "@types/redux": "^3.6.0",
     "babel-jest": "^22.0.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
