@@ -64,7 +64,7 @@ export default function configureStore(initialState = {}, customPersistConfig: P
   );
 
   const store = createStore(reducer, initialState, enhancer as any) as any;
-  let persistor = persistStore(store);
+  let persistor = persistStore(store) as any;
 
   return { persistor, store };
 }
