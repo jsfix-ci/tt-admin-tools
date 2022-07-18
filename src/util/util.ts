@@ -16,6 +16,6 @@ export function getPlainNode(nodeList, parentPath = '') {
   return arr;
 }
 
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory as createHistory } from 'history';
 
 export const history = createHistory();
